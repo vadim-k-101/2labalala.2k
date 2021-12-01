@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main(void) {
+  
+    char string[] = "";
+    fgets(string, 1000, stdin);
+    char geps[]=" ";
+    char *p1;
+    char *p2 = NULL;
+    int max_dlinna, len;
+    max_dlinna=0;
+ 
+    printf("%s",string);
+    p1=strtok(string,geps);
+    while (p1!=NULL) {
+        len=strlen(p1);
+        if (max_dlinna < len) {
+            p2 = strdup(p1);
+            max_dlinna = len;
+        }
+        p1=strtok(NULL,geps); 
+    }
+ 
+    printf("\n longest word '%s' \n", p2);
+    free(p2);
+    system("pause");
+}
